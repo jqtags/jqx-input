@@ -1,0 +1,11 @@
+{
+	"name": "jqtags/jqx-input",
+	"jqtags/jqx-input": {
+		"js": ["jqtags.x.input.js"],
+		"on": ["webmodules/jqtag", "jqmodules/x-editable"]
+	},
+	"jqtags/jqx-input/test": {
+		"js": ["test/jqtags.x.input.test.js"],
+		"on": ["jqtags/jqx-input"]
+	}
+}
