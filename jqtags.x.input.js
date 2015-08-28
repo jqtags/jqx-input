@@ -34,7 +34,11 @@ _tag_("jqtags.x.input", function (select) {
       });
     },
     detachedCallback: function () {
-      this.$a.editable("destroy");
+      try {
+        this.$a.editable("destroy");
+      } catch (e){
+        console.error("bad happend here",e);
+      }
     },
     valueOnChange: function (e, oldValue, newValue) {
       this.$a.text(newValue);
