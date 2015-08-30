@@ -15,6 +15,10 @@ _tag_("jqtags.x.input", function (select) {
       popup: {
         type: "boolean",
         default: true
+      },
+      disabled : {
+        type : "boolean",
+        default : false
       }
     },
     attachedCallback: function () {
@@ -25,6 +29,7 @@ _tag_("jqtags.x.input", function (select) {
       this.$a.editable({
         send: 'never',
         type: "text",
+        disabled: this.$.disabled ? true : false,
         mode: (this.$.popup ? 'popup' : 'inline'),
         title: 'Enter username'
       }).on("save", function (e, params) {
