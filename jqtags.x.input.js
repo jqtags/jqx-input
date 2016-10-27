@@ -19,6 +19,10 @@ _tag_("jqtags.x.input", function (select) {
       disabled : {
         type : "boolean",
         default : false
+      },
+       emptytext : {
+        type : "string",
+        default : false
       }
     },
     attachedCallback: function () {
@@ -31,7 +35,8 @@ _tag_("jqtags.x.input", function (select) {
         type: "text",
         disabled: this.$.disabled ? true : false,
         mode: (this.$.popup ? 'popup' : 'inline'),
-        title: 'Enter username'
+        title: 'Enter username',
+        emptytext : this.$.emptytext ? this.$.emptytext : '-'
       }).on("save", function (e, params) {
         self.$.value = params.newValue;
         self.trigger("change");
