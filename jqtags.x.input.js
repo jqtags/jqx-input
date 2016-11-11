@@ -29,6 +29,7 @@ _tag_("jqtags.x.input", function (select) {
       var self = this;
       this.$a =
         this.$.innerHTML = '<a href=# >' + this.$.value + '</a>';
+      this.$.emptytext = this.$.emptytext ? this.$.emptytext : '-'
       this.$a = jQuery(this.$).find("a");
       this.$a.editable({
         send: 'never',
@@ -36,7 +37,7 @@ _tag_("jqtags.x.input", function (select) {
         disabled: this.$.disabled ? true : false,
         mode: (this.$.popup ? 'popup' : 'inline'),
         title: 'Enter username',
-        emptytext : this.$.emptytext ? this.$.emptytext : '-'
+        emptytext : this.$.emptytext
       }).on("save", function (e, params) {
         self.$.value = params.newValue;
         self.trigger("change");
@@ -51,7 +52,7 @@ _tag_("jqtags.x.input", function (select) {
       }
     },
     valueOnChange: function (e, oldValue, newValue) {
-      this.$a.text(newValue);
+      this.$a.text((newValue==="" || newValue === null || newValue===undefined) ? this.$.emptytext : newValue);
     }
   };
 });
